@@ -1,0 +1,40 @@
+<h1>Ejercicios Clase 1 - Juan Marcos Vallejo.</h1>
+<router-outlet></router-outlet>
+
+<div>
+  <h1>Sumatoria:</h1>
+
+  <span>Valor uno: </span>
+  <input type="text" [(ngModel)]="firstValue" /><br /><br />
+
+  <span>Valor dos: </span>
+  <input type="text" [(ngModel)]="secondValue" /><br /><br />
+  <input type="button" value="Sumar" (click)="sum()" />
+<br>
+  <span> La suma es es: {{ thirdValue }}</span> <br>
+  <span> El promedio es: {{ average }}</span>
+</div>
+<hr>
+<div>
+  <h1>Creación de usario en el session storage:</h1>
+
+  <div>
+  <span>Usuario: </span>
+  <input type="text" [(ngModel)]="userEmail" /><br /><br />
+
+  <span>Password: </span>
+  <input type="text" [(ngModel)]="userPassword" /><br /><br />
+
+  <input type="button" value="Crear usuario" (click)="createUser()" />
+</div><br>
+<hr>
+  <span>
+  <input type="button" value="Obtener usuario del local storage" (click)="getUser()" />
+  <br><br>
+    Valores obtenidos del local storage: <br>
+    <br />
+    User: {{ localStorageUser == '' ? '-' : localStorageUser }}
+    <br />
+    Password: {{ localStoragePassword == '' ? '-' : localStoragePassword }}
+  </span>
+</div>
