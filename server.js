@@ -1,3 +1,11 @@
+function requireHTTPS(req, res, next) {
+    // The 'x-forwarded-proto' check is for Heroku
+    if (!req.secure && req.get('x-forwarded-proto') !== 'https') {
+        return res.redirect('https://' + req.get('host') + req.url);
+    }
+    next();
+}
+
 const path = require('path');
 const express = require('express');
 const app = express();
@@ -11,4 +19,4 @@ app.get('/*', function(req, res) {
 });
 
 // default Heroku port
-app.listen(process.env.PORT || 5000);
+app.listen(process.env.PORT || 8080);
